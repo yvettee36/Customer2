@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="itcast" uri="/itcast" %>
 <html>
 <head>
     <title>列出所有客户</title>
@@ -22,6 +23,7 @@
         <td>手机</td>
         <td>邮箱</td>
         <td>爱好</td>
+
         <td>类型</td>
         <td>备注</td>
         <td>操作</td>
@@ -36,7 +38,7 @@
         <td>${c.email }</td>
         <td>${c.preference }</td>
         <td>${c.type }</td>
-        <td>${c.description }</td>
+        <td>${itcast:sub(c.description)}</td>
         <td>
             <a href="${pageContext.request.contextPath}/servlet/UpdateCustomerServlet?id=${c.id}">修改</a>
             <a href="javascript:;" onclick="del('${c.id}')">删除</a>
